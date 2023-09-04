@@ -1,9 +1,24 @@
 import { defaultTheme } from "@/styles/muiTheme";
-import { styled } from "@mui/material";
+import { Theme, styled } from "@mui/material";
 
+export const ActivitiesStyles = (theme: Theme) => ({
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    height: "100vh",
+    pt: "6rem",
+    mx:"4rem",
+    [theme.breakpoints.down("sm")]: {
+        pt: "0",
+    }
+})
 
-export const GridContainer = () => ({
-    
+export const GridContainer = (theme: Theme) => ({
+    position: "relative",
+    [theme.breakpoints.down("md")]: {
+        height: "40%"
+    }
 })
 
 export const Image = styled("img") (()=>({
@@ -32,6 +47,7 @@ export const OverlayContent = styled ("div") (()=>({
     flexDirection: "column",
     justifyContent: "center",
     position:"absolute",
+    zIndex: 1,
     right: 0,
     top: 0,
     marginTop: "1rem",

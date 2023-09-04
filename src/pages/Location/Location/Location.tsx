@@ -1,7 +1,9 @@
-import {  Box, Grid, Typography, useMediaQuery } from '@mui/material';
+import {  Box, Grid, Link, Typography, useMediaQuery } from '@mui/material';
 import React, { useMemo } from 'react';
 import { ContactDetailContainer, DescStyles, LocationStyles } from './Location.styles';
 import {GoogleMap, useLoadScript, MarkerF} from '@react-google-maps/api';
+import { WhatsApp } from '@mui/icons-material';
+import { defaultTheme } from '@/styles/muiTheme';
 
 export interface LocationProps {}
 
@@ -29,13 +31,15 @@ const Location: React.FC<LocationProps>  = () => {
 						<Typography variant='body2'>Teléfono</Typography>
 						<Typography variant='button'>(0294) 4492-052</Typography>
 					</ContactDetailContainer>
-					<ContactDetailContainer>
+					<ContactDetailContainer sx={{}}>
 						<Typography variant='body2'>Celular</Typography>
-						<Typography variant='button'>(0294) 4354179</Typography>
+						<Link href="https://wa.me/2944354179" target="_blank">
+							<Typography variant='button' sx={{color: defaultTheme.palette.black.main, display: "flex", justifyContent: "space-between", alignItems: "center"}}><WhatsApp sx={{color:'green'}}/>(0294) 4354179</Typography>
+						</Link>
 					</ContactDetailContainer>
 					<ContactDetailContainer>
 						<Typography variant='body2'>Dirección</Typography>
-						<Typography variant='button'>Rivadavia 2672, El Bolsón, Río Negro (8430). Argentina.</Typography>
+						<Typography variant='button' >Rivadavia 2672, El Bolsón, Río Negro (8430). Argentina.</Typography>
 					</ContactDetailContainer>
 					<ContactDetailContainer>
 						<Typography variant='body2'>e-mail</Typography>
@@ -53,7 +57,7 @@ const Location: React.FC<LocationProps>  = () => {
 			<GoogleMap
 				center={center}
 				zoom={13}
-				mapContainerStyle={{width: "503px", height: "503px"}}
+				mapContainerStyle={{width: "503px", maxWidth: "100%", height: "503px"}}
 			>
 				<MarkerF position={center}/>
 			</GoogleMap>

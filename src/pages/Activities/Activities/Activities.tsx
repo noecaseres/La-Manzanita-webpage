@@ -1,7 +1,7 @@
 import { defaultTheme } from '@/styles/muiTheme';
 import { Box, Grid, Link, Typography } from '@mui/material';
 import React from 'react';
-import { GridContainer, Image, Overlay, OverlayContent } from './Activities.styles';
+import { ActivitiesStyles, GridContainer, Image, Overlay, OverlayContent } from './Activities.styles';
 
 
 export interface ActivitiesProps {
@@ -51,16 +51,16 @@ const activities = [
 
 const Activities: React.FC<ActivitiesProps>  = () => {
 	return (
-		<Box sx={{mx:"4rem", height: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", pt: "6rem"}}>
+		<Box sx={ActivitiesStyles}>
 			<Typography variant='h2' sx={{ color:defaultTheme.palette.black.main}}>Puntos de interés</Typography>
 			<Typography variant='body1' sx={{ color:defaultTheme.palette.black.main, m: "1rem 0 3rem 0"}}>Torquatos nostros? quos dolores eos, qui dolorem ipsum per se texit, ne ferae quidem se repellere, idque instituit docere sic: omne animal.</Typography>
 			<Grid container columns={{xs: 4, sm: 8, md: 12}} spacing={2} sx={GridContainer}>
 				{activities.map((act,index) => (
-					<Grid item key={index} xs= {12} sm= {6} md= {4} spacing={3} sx={{}}>
+					<Grid item key={index} xs= {12} sm= {6} md= {4} spacing={3} sx={{position: "relative"}}>
 						<Image src={act.image}></Image>
-						<Overlay />
+						<Overlay/>
 						<OverlayContent>
-							<Typography variant='body1' sx={{textAlign: "start", px: "1rem", fontWeight: "bold", zIndex: "3"}}>{act.title}</Typography>	
+							<Typography variant='body1' sx={{textAlign: "start", px: "1rem", fontWeight: "bold"}}>{act.title}</Typography>	
 							<Typography variant='body2' sx={{textAlign: "start", px: "1rem", mb: "3rem"}}>{act.description}</Typography>	
 							<Link variant='button' href= {act.link} target= "blank" sx={{mr: "2rem"}}>
 								Entrar a ver más info

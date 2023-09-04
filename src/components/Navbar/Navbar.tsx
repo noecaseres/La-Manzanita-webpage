@@ -6,7 +6,7 @@ import { AppBar, Container, Toolbar, Typography, Box, IconButton, Menu, MenuItem
 
 import Logo  from '../../assets/logo/Logo'
 import { defaultTheme } from '@/styles/muiTheme';
-import { AppBarStyles, HideAppBar } from './Navbar.styles';
+import { AppBarStyles, HideAppBar, LogoContainer } from './Navbar.styles';
 export interface NavbarProps {}
 
 const pagina = [
@@ -81,7 +81,9 @@ useEffect(() => {
 						display: { xs: 'none', md: 'flex' },
 					}}
 					>
-					<Logo/>
+					<LogoContainer>
+						<Logo/>
+					</LogoContainer>
 				</Typography>
 				<Typography
 					variant="h5"
