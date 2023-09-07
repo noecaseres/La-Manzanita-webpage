@@ -13,7 +13,7 @@ const Home: React.FC<HomeProps>  = () => {
 	return (
 			<Box sx={HomeStyles}>
 				<Box sx={HomeParagraph}>
-					<Box sx={{maxWidth: "714px"}}>
+					<Box sx={{maxWidth: "714px", color: defaultTheme.palette.bg.main}}>
 						<Typography variant={isMobileScreen ? "h2" : "h1"}>	
 							Cabañas 
 							<br/>

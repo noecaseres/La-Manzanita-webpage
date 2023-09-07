@@ -1,9 +1,7 @@
-import {  Box, Grid, Link, Typography, useMediaQuery } from '@mui/material';
+import {  Box, Grid, Typography, useMediaQuery } from '@mui/material';
 import React, { useMemo } from 'react';
 import { ContactDetailContainer, DescStyles, LocationStyles } from './Location.styles';
 import {GoogleMap, useLoadScript, MarkerF} from '@react-google-maps/api';
-import { WhatsApp } from '@mui/icons-material';
-import { defaultTheme } from '@/styles/muiTheme';
 
 export interface LocationProps {}
 
@@ -31,11 +29,10 @@ const Location: React.FC<LocationProps>  = () => {
 						<Typography variant='body2'>Teléfono</Typography>
 						<Typography variant='button'>(0294) 4492-052</Typography>
 					</ContactDetailContainer>
-					<ContactDetailContainer sx={{}}>
+					<ContactDetailContainer>
 						<Typography variant='body2'>Celular</Typography>
-						<Link href="https://wa.me/2944354179" target="_blank">
-							<Typography variant='button' sx={{color: defaultTheme.palette.black.main, display: "flex", justifyContent: "space-between", alignItems: "center"}}><WhatsApp sx={{color:'green'}}/>(0294) 4354179</Typography>
-						</Link>
+						<Typography variant='button'>(0294) 4354179</Typography>
+				
 					</ContactDetailContainer>
 					<ContactDetailContainer>
 						<Typography variant='body2'>Dirección</Typography>

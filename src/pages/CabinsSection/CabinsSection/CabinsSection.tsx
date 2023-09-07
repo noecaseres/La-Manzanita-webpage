@@ -3,6 +3,7 @@ import React from 'react';
 import { CabinsCard, CabinsContainer, CabinsGrid, CabinsStyles, DescriptionStyles, Image, ImageContainer, Overlay, OverlayContent, ParagraphContainer } from './CabinsSection.styles';
 import { BedIcon, ShowerIcon, TvIcon, WifiIcon } from '@/components/icons';
 import { Link } from 'react-router-dom';
+import { defaultTheme } from '@/styles/muiTheme';
 
 export interface CabinsSectionProps {
 	title?: string;
@@ -62,8 +63,10 @@ const isMobileScreen = useMediaQuery("(max-width:600px)");
 								<Image src={cabin.image} alt="cabin image"/>
 								<Overlay />
 								<OverlayContent>
-								<Link to={`/${index + 1}`}>
-									Ampliar
+								<Link
+									to={`/${index + 1}`}
+									style={{bottom: "0", textDecoration: "none", color: defaultTheme.palette.bg.main}}>
+									<Typography variant='button'>Ampliar</Typography>
 								</Link>
 								</OverlayContent>
 								

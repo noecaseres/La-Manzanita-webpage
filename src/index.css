@@ -34,12 +34,13 @@ time, mark, audio, video {
 }
 
 body, html, #root {
+  box-sizing: border-box;
   font-family: 'Graphik', '-apple-system', 'BlinkMacSystemFont', 'Arial', 'sans-serif', sans-serif;
   height: 100%;
   width: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #fafafa;
+  color: #242424;
 }
   
 img {
@@ -49,6 +50,10 @@ img {
 
 ul {
   list-style: none;
+}
+
+a:hover{
+  cursor: pointer;
 }
 
 .scroll {
@@ -63,5 +68,10 @@ ul {
 input,
 button {
   outline: none;
+}
+
+
+.FloatingWhatsAppClass{
+  position: absolute;
 }
 

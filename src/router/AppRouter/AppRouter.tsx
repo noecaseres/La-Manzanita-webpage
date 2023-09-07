@@ -1,10 +1,13 @@
 import React from 'react';
-import { Navbar } from '@/components';
+import { Footer, Navbar } from '@/components';
 import { About, Activities, Home, Location } from '@/pages';
 import { CabinDetails, CabinsSection } from '@/pages/CabinsSection/CabinsSection';
 import { SxProps } from '@mui/material';
 import {Routes, Route, Navigate} from "react-router-dom";
 import { Wrapper } from './AppRouter.styles';
+import {FloatingWhatsApp} from "react-floating-whatsapp";
+import ReactWhatsapp from "react-whatsapp";
+import Anfitriones from '../../assets/img/anfitriones.png'
 
 
 export interface AppRouterProps {
@@ -15,6 +18,15 @@ const AppRouter: React.FC<AppRouterProps>  = () => {
 	return (
 		<Wrapper>
 			<Navbar/>
+			<ReactWhatsapp number="+542944354179" message="Hello World!!!" element="webview"/>
+			<FloatingWhatsApp
+				accountName="La Manzanita"
+				phoneNumber="+542944354179"
+				statusMessage="Normalmente responde en 2 horas"
+				chatMessage= "Hola! En que podemos ayudarte?"
+				avatar={Anfitriones}
+				className="FloatingWhatsAppClass"
+			/>
 			<Routes>
 				<Route path="/" element={<Navigate to="/home"/>}/>
 				<Route path="home" element={<Home/>}/>
@@ -24,7 +36,7 @@ const AppRouter: React.FC<AppRouterProps>  = () => {
 				<Route path="ubicacion" element={<Location/>}/>
 				<Route path="/:cabinIndex" element={<CabinDetails/>}/>
 			</Routes>
-			{/* <Footer sx={null}/> */}
+			<Footer/>
 		</Wrapper>
 	)
 };
