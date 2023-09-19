@@ -1,7 +1,7 @@
 import { Box, Typography, useMediaQuery } from '@mui/material';
 import React from 'react';
 import { CabinsCard, CabinsContainer, CabinsGrid, CabinsStyles, DescriptionStyles, Image, ImageContainer, Overlay, OverlayContent, ParagraphContainer } from './CabinsSection.styles';
-import { BedIcon, ShowerIcon, TvIcon, WifiIcon } from '@/components/icons';
+import { BedIcon, ShowerIcon, TvIcon, WifiIcon } from '@/assets/icons';
 import { Link } from 'react-router-dom';
 import { defaultTheme } from '@/styles/muiTheme';
 
@@ -21,18 +21,18 @@ const cabins = [
 },
 {
 	title: "La Manzanita 2",
-	description: "Cabaña de dos plantas para 4 personas, con cocina comedor, baño y dos habitaciones.",
+	description: "Cabaña de una planta para 4 personas, con cocina comedor, baño y una habitación.",
 	beds: "4",
 	image: "/src/assets/img/lamanzanita_2.jpeg"
 },
 {
-	title: "La Manzanita 4",
-	description: "Cabaña de dos plantas para 4 personas, con cocina comedor, baño y dos habitaciones.",
+	title: "La Manzanita 3",
+	description: "Cabaña de una planta para 4 personas, con cocina comedor, baño y una habitación.",
 	beds: "4",
 	image: "/src/assets/img/lamanzanita_3.png"
 },
 {
-	title: "La Manzanita 5",
+	title: "La Manzanita 4",
 	description: "Cabaña de dos plantas para 5 personas, con cocina comedor, baño y dos habitaciones.",
 	beds: "5",
 	image: "/src/assets/img/lamanzanita_4.png"
@@ -40,14 +40,12 @@ const cabins = [
 
 ]
 
-
 const CabinsSection: React.FC<CabinsSectionProps>  = () => {
 
 const isMobileScreen = useMediaQuery("(max-width:600px)");
 
-
 	return (
-		<Box sx={CabinsContainer}>
+		<Box sx={CabinsContainer} id='cabanas'>
 			<Box sx={CabinsStyles}>
 				<Typography variant="h3" sx={{color: "black"}}>
 					Nuestras cabañas
@@ -64,7 +62,7 @@ const isMobileScreen = useMediaQuery("(max-width:600px)");
 								<Overlay />
 								<OverlayContent>
 								<Link
-									to={`/${index + 1}`}
+									to={`/cabanas/${index + 1}`}
 									style={{bottom: "0", textDecoration: "none", color: defaultTheme.palette.bg.main}}>
 									<Typography variant='button'>Ampliar</Typography>
 								</Link>

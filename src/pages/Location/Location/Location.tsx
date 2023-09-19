@@ -16,13 +16,14 @@ const Location: React.FC<LocationProps>  = () => {
 	const center = useMemo(() => ({lat:-41.96, lng:-71.54}), [])
 
 	return (
-		<Grid container columns={{xs: 1, md: 12}} sx={LocationStyles} spacing={2}>
+		<>
+		<Grid container columns={{xs: 1, md: 12}} sx={LocationStyles} spacing={2} id='ubicacion'>
 			<Grid item xs= {12} md= {6} sx={DescStyles}>
 				<Typography variant={isMobileScreen ? 'h3' : 'h2'}>
 					¿Cómo contactarnos?
 				</Typography>
 				<Typography variant='body1' sx={{my: "2rem"}}>
-					Torquatos nostros? quos dolores eos, qui dolorem ipsum per se texit, ne ferae quidem se repellere, idque instituit docere sic: omne animal, simul atque integre iudicante itaque aiunt hanc quasi involuta aperiri, altera occulta quaedam et voluptatem accusantium doloremque.
+				"Nuestra ubicación es inmejorable, justo en el corazón de El Bolsón, a tan solo dos cuadras de la emblemática Plaza Pagano. Esto significa que estarás a pocos pasos de supermercados, tiendas, restaurantes y bares, brindándote un acceso conveniente a todo lo que esta encantadora ciudad tiene para ofrecer."
 				</Typography>	
 				<Box>
 					<ContactDetailContainer>
@@ -62,6 +63,8 @@ const Location: React.FC<LocationProps>  = () => {
 			}
 			</Grid>
 		</Grid>
+
+		</>
 	)
 };
 

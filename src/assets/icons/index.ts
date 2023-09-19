@@ -1,5 +1,6 @@
 export { default as BedIcon } from './BedIcon';
 export { default as Bedding } from './Bedding';
+export { default as CommentsLine } from './CommentsLine';
 export { default as Heater } from './Heater';
 export { default as Kitchen } from './Kitchen';
 export { default as Parking } from './Parking';

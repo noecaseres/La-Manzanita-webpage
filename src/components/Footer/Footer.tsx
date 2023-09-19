@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, SxProps, Typography } from '@mui/material';
-import { defaultTheme } from '@/styles/muiTheme';
+import { FooterStyles } from './Footer.styles';
 
 export interface FooterProps {
 	sx?: SxProps;
@@ -8,19 +8,9 @@ export interface FooterProps {
 
 const Footer: React.FC<FooterProps>  = () => {
 	return (
-		<Box 
-			sx={{
-				background: defaultTheme.palette.black.main,
-				color: defaultTheme.palette.bg.main,
-				minHeight: "60px",
-				display: "flex",
-				flexDirection: "column",
-				alignItems: "center", 
-				justifyContent: "center",
-				width: "100vw",
-				}}>	
-			<Box>	
-				<Typography variant='body1'>
+		<Box sx={FooterStyles}>	
+			<Box sx={{px: "1.25rem"}}>	
+				<Typography variant='body1' sx={{textAlign: "center"}}>
 					Cabañas La Manzanita 2023 • Todos los derechos reservados.
 				</Typography>
 			</Box>

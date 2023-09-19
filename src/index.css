@@ -6,8 +6,15 @@
 }
 
 @font-face {
-  font-family: 'Graphik';
+  font-family: 'Graphik-Regular';
   src: url('/fonts/Graphik/GraphikRegular.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Graphik-Semibold';
+  src: url('/fonts/Graphik/GraphikSemibold.otf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -35,7 +42,7 @@ time, mark, audio, video {
 
 body, html, #root {
   box-sizing: border-box;
-  font-family: 'Graphik', '-apple-system', 'BlinkMacSystemFont', 'Arial', 'sans-serif', sans-serif;
+  font-family: 'Graphik-Regular', '-apple-system', 'BlinkMacSystemFont', 'Arial', 'sans-serif', sans-serif;
   height: 100%;
   width: 100%;
   -webkit-font-smoothing: antialiased;
@@ -56,6 +63,8 @@ a:hover{
   cursor: pointer;
 }
 
+
+
 .scroll {
   overflow-y: auto;
   overflow-x: hidden;
@@ -73,5 +82,9 @@ button {
 
 .FloatingWhatsAppClass{
   position: absolute;
+  width: 1rem;
+  height: 1rem;
+  font-size: small;
+  
 }
 

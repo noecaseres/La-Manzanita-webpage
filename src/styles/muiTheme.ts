@@ -68,6 +68,7 @@ const paletteColors = {
     },
         bg: {
         main: "#FAFAFA",
+        light: "#f2ede7"
     },
         black: {
         main: "#242424"
@@ -102,7 +103,7 @@ export const defaultTheme = createTheme({
         root: {
             width: "fit-content",
             padding: "1rem 1.5rem",
-            fontFamily: "Graphik",
+            fontFamily: "Graphik-Regular",
             },
         },
         variants: [
@@ -121,7 +122,7 @@ export const defaultTheme = createTheme({
             },
             style: {
               ":hover": {
-                background: "primary",
+                background: "white",
                 color: "#242424",
               },
               ":disabled": {
@@ -209,7 +210,7 @@ defaultTheme.typography.h1 = {
   };
   
   defaultTheme.typography.body1 = {
-    fontFamily: "Graphik",
+    fontFamily: "Graphik-Regular",
     fontSize: "20px",
     fontStyle: "normal",
     fontWeight: 400,
@@ -217,7 +218,7 @@ defaultTheme.typography.h1 = {
   };
 
   defaultTheme.typography.body2 = {
-    fontFamily: "Graphik",
+    fontFamily: "Graphik-Regular",
     fontSize: "16px",
     fontStyle: "normal",
     fontWeight: 400,
@@ -225,7 +226,7 @@ defaultTheme.typography.h1 = {
   };
 
   defaultTheme.typography.button = {
-    fontFamily: "Graphik",
+    fontFamily: "Graphik-Semibold",
     fontSize: "16px",
     fontStyle: "normal",
     fontWeight: 500,
@@ -234,7 +235,7 @@ defaultTheme.typography.h1 = {
   };
 
   defaultTheme.typography.caption = {
-    fontFamily: "Graphik",
+    fontFamily: "Graphik-Regular",
     fontSize: "12px",
     fontStyle: "normal",
     fontWeight: 400,

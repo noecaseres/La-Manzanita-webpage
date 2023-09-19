@@ -1,17 +1,17 @@
 import { defaultTheme } from "@/styles/muiTheme"
 import { Theme, styled } from "@mui/material";
 
-export const CabinsContainer = () => ({
-    width: "100%",
-    maxHeight: "100%",
-    background: defaultTheme.palette.bg.main,
+export const CabinsContainer = (theme: Theme) => ({
+    background: defaultTheme.palette.bg.light,
+    p: "5rem 4rem",
+    [theme.breakpoints.down("sm")]:{
+        p:"5rem 0"
+    }
 })
 
 export const CabinsStyles = (theme: Theme) => ({
     color: defaultTheme.palette.black.main,
     height: "100%",
-    pt: "9rem",
-    mx: "6rem",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -25,12 +25,14 @@ export const CabinsGrid = () =>({
     width: "100%",
     gridTemplateColumns: "repeat(auto-fill, minmax(18rem, 1fr))",
     gap: "1.25rem",
+    mt: "3rem"
 })
 
 export const CabinsCard = (theme: Theme) =>({
     background: defaultTheme.palette.white.main,
     [theme.breakpoints.down("sm")]: {
         display: "flex",
+        flexDirection: "column",
         mx: "1rem",
         alignItems: "center",
     }   
@@ -87,7 +89,6 @@ export const ParagraphContainer = (theme: Theme) =>({
     p: "1rem 1.25rem",
     [theme.breakpoints.down("sm")]: {
         p: "1rem",
-        width: "50%",
     }   
 })
 

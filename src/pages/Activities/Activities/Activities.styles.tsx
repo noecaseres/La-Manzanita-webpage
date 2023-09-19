@@ -2,15 +2,14 @@ import { defaultTheme } from "@/styles/muiTheme";
 import { Theme, styled } from "@mui/material";
 
 export const ActivitiesStyles = (theme: Theme) => ({
+    background: defaultTheme.palette.bg.light,
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    height: "100vh",
-    pt: "6rem",
-    mx:"4rem",
+    p: "6rem 4rem",
     [theme.breakpoints.down("sm")]: {
-        pt: "0",
+        pt: "3rem",
     }
 })
 

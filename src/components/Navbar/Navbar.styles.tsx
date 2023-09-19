@@ -9,7 +9,7 @@ export const AppBarStyles = (theme: Theme) =>({
     height:"120px",
     justifyContent: "center",
     [theme.breakpoints.down("sm")]:{
-
+        px: "1.25rem",
     }
 });
 
@@ -20,4 +20,7 @@ export const HideAppBar = () =>({
 
 export const LogoContainer = styled("div")(() => ({
     minWidth: "10px",
+    
+
+    
 }))

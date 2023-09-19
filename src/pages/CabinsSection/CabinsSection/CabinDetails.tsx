@@ -1,29 +1,38 @@
 import React from 'react';
 import { cabins } from '@/data/data';
-import { Box, Divider, Grid, Typography } from '@mui/material';
-import { useParams } from 'react-router-dom';
+import { Box, Button, Divider, Grid, Typography } from '@mui/material';
+import { Link, useParams } from 'react-router-dom';
 import { CabinDetailsStyles, Image, SpecificationsContainer, SpecificationsDetails } from './CabinDetails.styles';
 import { defaultTheme } from '@/styles/muiTheme';
-import { BedIcon, Bedding, Heater, Kitchen, Parking, ShowerIcon, TvIcon, WifiIcon } from '@/components/icons';
+import { BedIcon, Bedding, Heater, Kitchen, Parking, ShowerIcon, TvIcon, WifiIcon } from '@/assets/icons';
+import { ScrollToTop } from '@/components/ScrollToTop/ScrollToTop';
+import { EmailForm } from '@/components/EmailForm/EmailForm/EmailForm';
 
 export interface CabinOneProps {
 }
 
-const CabinOne: React.FC<CabinOneProps>  = () => {
+const CabinDetails: React.FC<CabinOneProps>  = () => {
 	const { cabinIndex } = useParams();
 	const cabinParsed = cabinIndex ? parseInt(cabinIndex) : 0;
 	const cabin = cabins.filter(cab => cab.number === cabinParsed);
 
 	return (
 		<>
+		<ScrollToTop/>
 			{
 				cabin.map((c, index) => (
-					<Box sx={{ mt: "8rem", height: "100vh", width: "100vw"}} key={index}>
+					<Box key={index} sx={{p: "2rem"}}>
+						
+						<Button sx={{ width: "100%", backgroundColor: "transparent" }}>
+							<Link to="/" style={{bottom: "0", textDecoration: "none", color: defaultTheme.palette.primary.main}}>
+								&larr; Volver al inicio
+							</Link>
+						</Button>	
 						<Grid container columns={{xs: 4, sm: 8, md: 12}}
-						sx={{ width: "100%", justifyContent: "center"}}>
+						sx={{ width: "100%", justifyContent: "center"}}  spacing={2}>
 							{c.image.map((img, index)=>(
 								<Grid item key={index} xs= {2} sm= {3} md= {3}>
-									<Image src={`/src/assets/img/${img}`} alt="cabaña"></Image>
+									<Image src={`/src/assets/img/lamanzanita${c.number}/${img}`} alt="cabaña"></Image>
 								</Grid>
 							))}					
 						</Grid>
@@ -62,7 +71,7 @@ const CabinOne: React.FC<CabinOneProps>  = () => {
 								</SpecificationsContainer>
 							</Box>
 							<Divider/>
-							<Typography variant='body2' sx={{my: "2rem"}}>
+							<Typography variant='body2' sx={{py: "2rem"}}>
 								{`Cabaña para ${c.guest} personas, con cocina comedor, baño y una habitación matrimonial.
 								Cuenta con servicio de TV por cable, WIFI, microondas, calefacción, cocina a gas y parrilla interna.
 								Todas las cabañas cuentan con cochera con media-sombra y patio compartido con parrilla.`}
@@ -96,13 +105,13 @@ const CabinOne: React.FC<CabinOneProps>  = () => {
 								</SpecificationsContainer>
 							</Box>
 							<Divider/>
-							<Box sx={{my: "2rem"}} >
+							<Box sx={{py: "2rem"}} >
 								<Typography variant='h4' sx={{mb: "1rem"}}>Información importante</Typography>
 								<Typography variant='button'>Reglas generales</Typography>
-								<Typography variant='body2' sx={{mt: "1rem"}}>
-								El horario de ingreso a las cabañas es a partir de las 12 del mediodia.<br/>
+								<Typography variant='body2' sx={{mt: "1rem", }}>
+								El horario de ingreso a las cabañas es a partir de las 12 del mediodía.<br/>
 								El horario de egreso de las cabañas es antes de las 10 de la mañana.<br/>
-								Cada cabaña cuenta con 1 llaves.<br/>
+								Cada cabaña cuenta con 1 llave.<br/>
 								No esta permitido fumar dentro de las cabañas.<br/>
 								No se permite cocinar frituras (por cuestiones de seguridad).<br/>
 								No se permiten fiestas ni ruidos molestos.<br/>
@@ -111,7 +120,8 @@ const CabinOne: React.FC<CabinOneProps>  = () => {
 								</Typography>	
 							</Box>
 							<Divider/>
-						</Box>					
+						</Box>	
+						<EmailForm/>
 					</Box>
 				))
 			}
@@ -120,4 +130,4 @@ const CabinOne: React.FC<CabinOneProps>  = () => {
 	)
 };
 
-export default CabinOne;
+export default CabinDetails;

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import MenuIcon from '@mui/icons-material/Menu';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
@@ -6,7 +6,7 @@ import { AppBar, Container, Toolbar, Typography, Box, IconButton, Menu, MenuItem
 
 import Logo  from '../../assets/logo/Logo'
 import { defaultTheme } from '@/styles/muiTheme';
-import { AppBarStyles, HideAppBar, LogoContainer } from './Navbar.styles';
+import { AppBarStyles, LogoContainer } from './Navbar.styles';
 export interface NavbarProps {}
 
 const pagina = [
@@ -38,7 +38,6 @@ const instagramUrl = 'https://www.instagram.com';
 const Navbar: React.FC<NavbarProps>  = () => {
 
 const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-const [show, setShow] = useState(true);
 
 const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -48,27 +47,8 @@ const handleCloseNavMenu = () => {
     setAnchorElNav(null);
 };
 
-const controlNavbar = () =>{
-	if(window.scrollY > 50) {
-		setShow(false)
-	}else{
-		setShow(true)
-	}
-}
-
-useEffect(() => {
-	window.addEventListener('scroll',
-	controlNavbar)
-	return () => {
-		window.removeEventListener('scroll', 
-		controlNavbar)
-	}
-}, [])
-
-
 	return (
-		<AppBar position="fixed"
-		sx={ !show ? HideAppBar : AppBarStyles }>
+		<AppBar position="fixed" sx={ AppBarStyles }>
 		<Container maxWidth="xl">
 			<Toolbar disableGutters>
 				<Typography
@@ -76,10 +56,7 @@ useEffect(() => {
 					noWrap
 					component="a"
 					href="/home"
-					sx={{
-						mr: 2,
-						display: { xs: 'none', md: 'flex' },
-					}}
+					sx={{ mr: 2, display: { xs: 'none', md: 'flex' }}}
 					>
 					<LogoContainer>
 						<Logo/>
@@ -90,11 +67,7 @@ useEffect(() => {
 					noWrap
 					component="a"
 					href="/home"
-					sx={{
-						mr: 2,
-						display: { xs: 'flex', md: 'none' },
-						flexGrow: 1,
-					}}
+					sx={{mr: 2, display: { xs: 'flex', md: 'none' }, flexGrow: 1, }}
 					>
 					<Logo/>
 				</Typography>
@@ -115,29 +88,21 @@ useEffect(() => {
 					<Menu
 						id="menu-appbar"
 						anchorEl={anchorElNav}
-						anchorOrigin={{
-						vertical: 'bottom',
-						horizontal: 'left',
-						}}
+						anchorOrigin={{ vertical: 'bottom', horizontal: 'left'}}
 						keepMounted
-						transformOrigin={{
-						vertical: 'top',
-						horizontal: 'left',
-						}}
+						transformOrigin={{ vertical: 'top', horizontal: 'left'}}
 						open={Boolean(anchorElNav)}
 						onClose={handleCloseNavMenu}
-						sx={{
-						display: { xs: 'block', md: 'none' },
-						}}
+						sx={{ display: { xs: 'block', md: 'none' } }}
 					>
 						{pagina.map((page) => (
 						<MenuItem
 							key={page.ref}
 							onClick={handleCloseNavMenu}
 							>
-							<Link href={page.ref} color="inherit" underline="none">
-								<Typography textAlign="center">{page.title}</Typography>
-							</Link>
+						<Link href={`#${page.ref}`} color="inherit" underline="none">
+							<Typography textAlign="center">{page.title}</Typography>
+						</Link>
 						</MenuItem>
 						))}
 					</Menu>
@@ -148,12 +113,8 @@ useEffect(() => {
 						variant='text'
 						key={page.ref}
 						onClick={handleCloseNavMenu}
-						href={page.ref}
-						sx={{
-							my: 2,
-							display: 'block',
-							color: defaultTheme.palette.white.main
-						}}
+						href={`#${page.ref}`}
+						sx={{my: 2, display: 'block', color: defaultTheme.palette.white.main}}
 						>
 						{page.title}
 						</Button>

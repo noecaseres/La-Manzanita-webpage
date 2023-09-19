@@ -9,7 +9,7 @@ export const Image = styled("img") (()=>({
 export const CabinDetailsStyles = (theme : Theme)=>({
     width: "60%",
     m: "2rem 0 0 10rem",
-    [theme.breakpoints.down("sm")]: {
+    [theme.breakpoints.down("md")]: {
         width: "100%",
         mx: "1rem",
     }
